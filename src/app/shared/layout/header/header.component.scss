@@ -1,0 +1,30 @@
+.flex-toolbar {
+    display: flex;
+    flex-wrap:nowrap;
+    justify-content: space-between;
+
+    background-color: blue;
+}
+
+.menu-items {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    flex-grow: 2;
+}
+
+.app-title {
+    color: skyblue;
+}
+
+a:link, a:visited, a:active {
+    color: navajowhite;
+    text-decoration: none;
+}
+
+a:hover {
+    color: lightgreen;
+    text-decoration: none;
+}

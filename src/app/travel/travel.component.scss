@@ -1,0 +1,29 @@
+.mat-stepper-horizontal {
+    margin-top: 4px;
+    margin-bottom: 10px;
+    margin-left: 8px;
+}
+
+.mat-form-field {
+    margin-top: 16px;
+   color: aquamarine;
+}
+
+.sides {
+    padding-right: 5px;
+    display: flex;
+    justify-content: space-between ;
+    min-height: 600px;
+    color: skyblue;
+    background-color:  lightblue;
+}
+
+.stepper-content {
+    flex-grow: 4;
+    width:60%;
+    align-content: center;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}

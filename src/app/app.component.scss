@@ -1,0 +1,19 @@
+.main-content {
+    min-height: 600px;
+    background-color: pink;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.error-snackbar{
+  background-color: lightcoral;
+  color: white;
+}
+
+@media all and (max-width: 600px) {
+    .main-content {
+      flex-flow: column wrap;
+      padding: 0;
+    }
+}

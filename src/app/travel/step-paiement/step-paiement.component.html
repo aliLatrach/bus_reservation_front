@@ -1,0 +1,63 @@
+<div class="step-paiement-content">
+  <form [formGroup]="paiementFormGroup" class="form-paiement">
+    <div *ngIf="errors && errors.length > 0" class="alert alert-danger">
+      <p *ngFor="let error of errors">{{ error }}</p>
+    </div>
+  <mat-radio-group formControlName="typeMoyenPaiement"
+      aria-labelledby="type-moyen-paiement-radio-group-label">
+      <mat-radio-button class="radio-button" *ngFor="let option of options" [value]="option.name">
+        {{option.libelle}}
+      </mat-radio-button>
+    </mat-radio-group>
+    <ng-container *ngIf="paiementFormGroup.value.typeMoyenPaiement === CARTE_BANCAIRE">
+      <mat-form-field appearance="fill">
+        <mat-label>Credit card number</mat-label>
+        <input formControlName="numeroCarte" matInput placeholder="Ex. 4719XXXXXXXX">
+      </mat-form-field>
+      <ng-container *ngFor="let formControl of [paiementFormGroup.controls['numeroCarte']]">
+        <div *ngIf="formControl.invalid && (formControl.dirty || formControl.touched)" class="alert alert-danger">
+          <div *ngIf="formControl.errors?.['required']">
+           The credit card number is required.
+          </div>
+          <div *ngIf="formControl.errors?.['pattern']">
+            The credit card number is not in the correct format.
+          </div>
+        </div>
+      </ng-container>
+        <mat-form-field appearance="fill">
+        <mat-label>Expiration date</mat-label>
+        <input formControlName="dateExpiration" matInput [matDatepicker]="picker">
+        <mat-hint>DD/MM/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <ng-container *ngFor="let formControl of [paiementFormGroup.controls['dateExpiration']]">
+        <div *ngIf="formControl.invalid && (formControl.dirty || formControl.touched)" class="alert alert-danger">
+          <div *ngIf="formControl.errors?.['required']">
+           you must seelct a expiration date          </div>
+        </div>
+      </ng-container>
+      </ng-container>
+  <ng-container *ngIf="paiementFormGroup.value.typeMoyenPaiement === PAYPAL">
+    <mat-form-field appearance="fill">
+      <mat-label>Adresse e-mail</mat-label>
+      <input type="email" formControlName="email" matInput placeholder="Ex. monadresse@email.fr">
+    </mat-form-field>
+    <ng-container *ngFor="let formControl of [paiementFormGroup.controls['email']]">
+      <div *ngIf="formControl.invalid && (formControl.dirty || formControl.touched)" class="alert alert-danger">
+        <div *ngIf="formControl.errors?.['required']">
+          L'email est obligatoire.
+        </div>
+        <div *ngIf="formControl.errors?.['email']">
+          The email is not in the correct format.
+        </div>
+      </div>
+    </ng-container>
+
+</ng-container>
+      <div class="button-item">
+        <button mat-flat-button color="primary" (click)="onCancelReservation()">Cancel your reservation</button>
+        <button mat-flat-button color="primary" type="submit" (click)="onSubmit()">Pay</button>
+      </div>
+  </form>
+</div>

@@ -1,0 +1,26 @@
+<div class="container-panier" style="color: skyblue!important; background-color: gray!important">
+    <h2>My Shopping Cart</h2>
+    <div class="card text-white bg-secondary mb-3" *ngFor="let item of items$ | async">
+        <div class="card-body">
+            <h4 class="card-title">Bus number : {{item.trajet.bus.busNumber}} - Travet from {{item.trajet.departureDate | date:'dd/MM/YYYY' }} to {{item.trajet.departureDate | date:'hh:mm' }} </h4>
+            <div class="card-text">
+                <div class="sub-card-text">
+                    <div>
+                        <span>Number of places to reserve</span>
+                        <button mat-icon-button (click)="onDeleteItem(item.trajet)">
+                            <mat-icon>remove_circle</mat-icon>
+                        </button>
+                        <span>{{ item.quantity }}</span>
+                        <button mat-icon-button (click)="onAddItem(item.trajet)">
+                            <mat-icon>add_circle</mat-icon>
+                        </button>
+                    </div>
+                    <div>{{ item.prixTotal | currency : 'EUR' }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="total">
+        <strong>the total price of my cart: {{ items | prixTotalPanier }}</strong>
+    </div>
+</div>

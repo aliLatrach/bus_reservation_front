@@ -1,0 +1,16 @@
+<div class="sides" style="color: cornflowerblue" >
+  <mat-stepper class="stepper-content" [linear]="true" labelPosition="bottom" #stepper>
+    <mat-step [stepControl]="step1.travelFormGroup">
+      <ng-template matStepLabel>Select your trip</ng-template>
+      <app-step-travel (onNextStep)="goToStepPaiement($event)" #step1></app-step-travel>
+    </mat-step>
+    <mat-step [stepControl]="step2.paiementFormGroup" >
+      <ng-template matStepLabel>Make your payment</ng-template>
+      <app-step-paiement (onPreviousStep)="returnToStepTravel()" (onNextStep)="goToConfirmation($event)" #step2></app-step-paiement>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>the reservation confirmation</ng-template>
+      <app-step-confirmation #step3 (reset)="stepper.reset()"></app-step-confirmation>
+    </mat-step>
+  </mat-stepper>
+</div>

@@ -1,0 +1,25 @@
+h2 {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.container-panier {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    min-height: 400px;
+}
+
+.sub-card-text {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.total {
+    align-self: flex-end;
+    padding-right: 20px;
+    padding-bottom: 10px;
+}

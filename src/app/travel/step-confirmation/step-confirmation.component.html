@@ -1,0 +1,8 @@
+<ng-container *ngIf="facture">
+
+  <p>Your reservation n° {{ facture.reservationId }} is confirmed.</p>
+  <p>Your bill is registered under the number {{ facture.factureId }}.</p>
+  <div class="button-list">
+    <button mat-flat-button color="primary" (click)="onResetStepper()">Make a new reservation</button>
+  </div>
+</ng-container>

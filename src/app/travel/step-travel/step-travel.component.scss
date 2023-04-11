@@ -1,0 +1,51 @@
+.step-travel-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between ;
+    min-height: 450px;
+}
+
+.basket-content {
+    background-color: #EBEBEB;
+    width: 39%;
+    margin-bottom: 16px;
+}
+
+.form-field-bus, .table-trajet{
+    width: 100%;
+}
+
+.form-content {
+    flex-grow: 4;
+    align-content: center;
+
+}
+
+.prix-barre {
+    text-decoration: line-through;
+}
+
+.prix {
+    text-align: center;
+}
+
+.prix-remise {
+    background-color: lightgray;
+}
+
+.global-button {
+    width: 100%;
+
+    display: flex;
+    justify-content: end;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.left-part {
+    width: 60%;
+}
